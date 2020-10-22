@@ -29,4 +29,4 @@ RUN zowe  profiles create zosmf-profile mtm2020 --host ${HOST_IP} --port ${HOST_
 RUN zowe profiles create tso-profile mtm2020 -a fb3 
 
 CMD "/bin/bash"
-ENTRYPOINT 
+

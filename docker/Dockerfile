@@ -1,6 +1,11 @@
 FROM debian:buster-slim
 
+ENV HOST_IP
+ENV HOST_PORT
+ENV USER
+ENV PASSWORD
 
+echo "HOST:"${HOST_IP}
 
 USER root
 
@@ -20,5 +25,7 @@ RUN apt-get update \
 
 RUN npm i -f --ignore-scripts -g  @zowe/cli
 
-CMD "/bin/bash"
+RUN zowe  profiles create zosmf-profile mtm2020 --host ${HOST_IP} --port ${HOST_PORT}  --user ${USER} --password ${PASSWORD} --reject-unauthorized false
+RUN zowe profiles create tso-profile mtm2020 -a fb3 
 
+CMD "/bin/bash"

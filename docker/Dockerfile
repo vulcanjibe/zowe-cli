@@ -5,7 +5,7 @@ ENV HOST_PORT $HOST_PORT
 ENV USER $USER
 ENV PASSWORD $PASSWORD
 
-echo "HOST:"${HOST_IP}
+RUN echo "HOST:"${HOST_IP} 
 
 USER root
 
@@ -27,8 +27,6 @@ RUN npm i -f --ignore-scripts -g  @zowe/cli
 
 COPY start.sh /home/zowe/start.sh
 RUN chmod a+x /home/zowe/start.sh
-#RUN zowe  profiles create zosmf-profile mtm2020 --host ${HOST_IP} --port ${HOST_PORT}  --user ${USER} --password ${PASSWORD} --reject-unauthorized false
-#RUN zowe profiles create tso-profile mtm2020 -a fb3 
 
 CMD "/bin/bash"
 ENTRYPOINT ["/home/zowe/start.sh"]

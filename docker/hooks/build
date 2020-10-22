@@ -1,0 +1,7 @@
+#!/bin/bash
+echo "------ HOOK START - BUILD -------"
+printenv
+
+docker build --build-arg SSH_KEY_PRIVATE=$SSH_KEY_PRIVATE --build-arg SSH_KEY_PUBLIC='${SSH_KEY_PUBLIC}' -t $IMAGE_NAME .
+
+echo "------ HOOK END - BUILD -------"

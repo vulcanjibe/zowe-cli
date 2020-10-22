@@ -1,9 +1,9 @@
 FROM debian:buster-slim
 
-ENV HOST_IP
-ENV HOST_PORT
-ENV USER
-ENV PASSWORD
+ENV HOST_IP $HOST_IP
+ENV HOST_PORT $HOST_PORT
+ENV USER $USER
+ENV PASSWORD $PASSWORD
 
 echo "HOST:"${HOST_IP}
 
@@ -29,3 +29,4 @@ RUN zowe  profiles create zosmf-profile mtm2020 --host ${HOST_IP} --port ${HOST_
 RUN zowe profiles create tso-profile mtm2020 -a fb3 
 
 CMD "/bin/bash"
+ENTRYPOINT 

@@ -27,7 +27,7 @@ RUN apt-get update \
 RUN npm i -f --ignore-scripts -g  @zowe/cli
 
 COPY start.sh /home/zowe/start.sh
-RUN chmod a+x /home/zowe/start.sh
+#RUN chmod a+x /home/zowe/start.sh
 
 # CMD "/bin/bash"
 # CMD ["/home/zowe/start.sh"]
